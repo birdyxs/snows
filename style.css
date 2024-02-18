@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  background: #333;
+}
+body #snow {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  /**
+   * Defaults
+  **/
+  --size: 1;
+  --fallDuration: 10s;
+  --swayDuration: 0.8s;
+  --fallSlideStrength: 0.5;
+  --slideStrength: 0.5;
+  --position: 0;
+}
+body #snow > div {
+  position: absolute;
+  top: 0;
+  left: calc(var(--position) - 20%);
+  width: calc(var(--size) * 15px);
+  aspect-ratio: 1;
+  background: radial-gradient(white, transparent 66%);
+  -webkit-animation: var(--fallDuration) snowFall linear forwards;
+          animation: var(--fallDuration) snowFall linear forwards;
+}
+
+@-webkit-keyframes snowFall {
+  to {
+    top: 100%;
+    transform: translateX(calc(var(--cWidth) * var(--fallSlideStrength) / 8));
+  }
+}
+
+@keyframes snowFall {
+  to {
+    top: 100%;
+    transform: translateX(calc(var(--cWidth) * var(--fallSlideStrength) / 8));
+  }
+}
